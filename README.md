@@ -1,46 +1,38 @@
-# Getting Started with Create React App
+## 원티드 프리온보딩 사전 과제 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 프로젝트의 실행 방법
+- npm start
 
-## Available Scripts
 
-In the project directory, you can run:
+### 데모영상
 
-### `npm start`
+##### 회원가입
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/53455328/186128879-78b64599-8c4b-4961-a17d-d62ed65f607a.gif)
+- 페이지 안에 이메일, 비밀번호 입력창, 제출 버튼이 포함된 형태로 구성
+- 로그인, 회원가입을 별도의 경로로 분리
+- 이메일 조건('@' 포함), 비밀번호 조건(8자이상)
+- 입력된 이메일과 비밀번호가 조건을 만족할 경우 버튼 활성화
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+##### 로그인
+![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/53455328/186129461-3a896674-d17e-4d66-9bf1-75a88a226a0a.gif)
+- 로그인 성공시 응답받은 JWT를 로컬 스토리지에 저장
+- ![image](https://user-images.githubusercontent.com/53455328/186133481-5c0d9ba4-4e4b-4239-a432-dfe1c9465458.png)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+##### Create-TodoList
+![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/53455328/186130272-ec2d2b8a-f929-4413-8e49-2c8415bc25ce.gif)
+- 리스트 페이지에 입력창과 추가 버튼이 있고, 버튼을 누르면 투두 리스트가 추가됨
+- 버튼 클릭 뿐 아니라 엔터키 입력시 투두 리스트 추가됨
 
-### `npm test`
+##### Update, Delete-TodoList 
+![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/53455328/186131211-c998ad8f-f52a-400f-a518-123fb794e7bd.gif)
+- 수정 버튼과 삭제 버튼이 존재하며 개별적으로 리스트의 내용을 수정 또는 삭제 가능
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### 로그인 여부에 따른 리다이렉트 처리
+1. 로그인한 상태에서 로그인 화면으로 넘어가려고 할 경우
+![ezgif com-gif-maker (4)](https://user-images.githubusercontent.com/53455328/186132215-c6041bf5-9143-4471-b2aa-47e06d6b49cf.gif)
+  - 로컬 스토리지에 토큰이 있는 상태로 / 페이지에 접속한다면 /todo로 리다이렉트
 
-### `npm run build`
+2. 로그아웃한 상태에서 /todo 화면으로 넘어가려고 할 경우
+![ezgif com-gif-maker (5)](https://user-images.githubusercontent.com/53455328/186132806-1baf1b9d-1f5c-4bbd-bf68-6ae06f55e6ca.gif)
+  - 로컬 스토리지에 토큰이 없는 상태로 /todo 페이지에 접속한다면 / 로 리다이렉트
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
