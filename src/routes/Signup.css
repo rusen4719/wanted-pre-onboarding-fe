@@ -1,0 +1,67 @@
+* {
+  list-style: none;
+  text-decoration: none;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+.wrap {
+  position: relative;
+}
+.wrap .backToLogin {
+  background-color: #fff;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 0px 10px 10px 10px;
+  position: absolute;
+  left: 51%;
+  top: -10%;
+  cursor: pointer;
+  color: #bbacac;
+}
+.signupMainFrame .idpw {
+  display: flex;
+  justify-content: center;
+  width: 200px;
+  flex-direction: column;
+  margin: 20px auto 0;
+}
+.signupMainFrame .idpw input {
+  padding: 5px 10px;
+}
+.signupMainFrame .idpw p {
+  font-size: 13px;
+  display: flex;
+  margin-left: 2px;
+  margin-bottom: 3px;
+  color: #ada09f;
+  font-weight: bold;
+}
+.signupMainFrame .idpw p:nth-child(3) {
+  margin-top: 10px;
+}
+.signupMainFrame .signup:enabled {
+  padding: 8px 20px;
+  background-color: #fff;
+  border: 1px solid rgb(133, 133, 133);
+  border-radius: 15px;
+  width: 200px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.signupMainFrame .signup:enabled:hover {
+  background-color: #ada09f;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+}
+.signupMainFrame .signup:disabled {
+  padding: 8px 20px;
+  color: #cdcdcd;
+  background-color: #eee;
+  border: 1px solid rgb(133, 133, 133);
+  border-radius: 15px;
+  width: 200px;
+  margin-top: 20px;
+}
