@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { postUser } from "../../services/axios.service";
 import "./Signup.module.css";
@@ -22,15 +22,16 @@ export default function Signup() {
       password: inputPassword,
     }).then(() => navi("/"));
   }
+  function onChangeInputEmail(event: ChangeEvent<HTMLInputElement>) {
+    setInputEmail(event.currentTarget.value);
+  }
+  function onChangeInputPassword(event: ChangeEvent<HTMLInputElement>) {
+    setInputPassword(event.currentTarget.value);
+  }
 
   return (
     <div className="wrap">
-      <button
-        className="backToLogin"
-        onClick={() => {
-          BackToLogin();
-        }}
-      >
+      <button className="backToLogin" onClick={BackToLogin}>
         뒤로가기
       </button>
       <div className="signupMainFrame">
@@ -39,13 +40,13 @@ export default function Signup() {
           <input
             type="email"
             placeholder="Email"
-            onChange={(email) => setInputEmail(email.target.value)}
+            onChange={onChangeInputEmail}
           ></input>
           <p>비밀번호</p>
           <input
             type="password"
             placeholder="Password"
-            onChange={(password) => setInputPassword(password.target.value)}
+            onChange={onChangeInputPassword}
           ></input>
         </div>
         <button
