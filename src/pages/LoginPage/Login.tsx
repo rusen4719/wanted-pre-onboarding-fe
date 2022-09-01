@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getToken } from "../../services/axios.service";
 import "./Login.module.css";
@@ -13,6 +13,13 @@ export default function Login() {
       window.location.replace("/todo");
     }
   }, []);
+
+  function onChangeEmailInput(event: ChangeEvent<HTMLInputElement>) {
+    setInputEmail(event.currentTarget.value);
+  }
+  function onChangePasswordInput(event: ChangeEvent<HTMLInputElement>) {
+    setInputPassword(event.currentTarget.value);
+  }
 
   function onClickLogin() {
     getToken({
@@ -31,14 +38,12 @@ export default function Login() {
           <input
             type="email"
             placeholder="Email"
-            onChange={(email) => setInputEmail(email.currentTarget.value)}
+            onChange={onChangeEmailInput}
           ></input>
           <input
             type="password"
             placeholder="Password"
-            onChange={(password) =>
-              setInputPassword(password.currentTarget.value)
-            }
+            onChange={onChangePasswordInput}
           ></input>
           <p>
             {" "}
