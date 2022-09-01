@@ -11,7 +11,7 @@ interface ServerError {
 }
 
 const authAxios = axios.create({
-  baseURL: "https://n38lcff1wk.execute-api.ap-northeast-2.amazonaws.com/",
+  baseURL: "https://n38lcff1wk.execute-api.ap-northeast-2.amazonaws.com/auth",
 });
 
 const todoAxios = axios.create({
@@ -23,8 +23,8 @@ const todoAxios = axios.create({
 
 export const getToken = async (loginParams: LoginParams) => {
   try {
-    const response = await authAxios.post("/login", { ...loginParams });
-    return response.data;
+    const response = await authAxios.post("/signin", { ...loginParams });
+    return response.data.access_token;
   } catch (error) {
     if (axios.isAxiosError(error)) {
       const serverError = error as AxiosError<ServerError>;

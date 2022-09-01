@@ -1,11 +1,9 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { getToken } from "../../services/axios.service";
 import "./Login.module.css";
 
 export default function Login() {
-  const baseAPI =
-    "https://5co7shqbsf.execute-api.ap-northeast-2.amazonaws.com/production";
   const [inputEmail, setInputEmail] = useState("");
   const [inputPassword, setInputPassword] = useState("");
   const navi = useNavigate();
@@ -16,24 +14,14 @@ export default function Login() {
     }
   }, []);
 
-  async function onClickLogin() {
-    await axios
-      .post(
-        baseAPI + `/auth/signin`,
-        {
-          email: inputEmail,
-          password: inputPassword,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      )
-      .then((Response) => {
-        window.localStorage.setItem("access_token", Response.data.access_token);
-        navi("/todo", { replace: true });
-      });
+  function onClickLogin() {
+    getToken({
+      email: inputEmail,
+      password: inputPassword,
+    }).then((Response) => {
+      window.localStorage.setItem("access_token", Response);
+      navi("/todo", { replace: true });
+    });
   }
 
   return (
