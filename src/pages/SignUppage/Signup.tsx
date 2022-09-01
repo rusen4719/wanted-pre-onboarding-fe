@@ -1,15 +1,12 @@
-import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { postUser } from "../../services/axios.service";
 import "./Signup.module.css";
 
 export default function Signup() {
   const [inputEmail, setInputEmail] = useState("");
   const [inputPassword, setInputPassword] = useState("");
-  const baseAPI =
-    "https://5co7shqbsf.execute-api.ap-northeast-2.amazonaws.com/production/";
   const navi = useNavigate();
-
   const validate = () => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
     return regex.test(inputEmail) && inputPassword.length >= 8;
@@ -20,20 +17,10 @@ export default function Signup() {
   }
 
   function SignUp() {
-    axios
-      .post(
-        baseAPI + `auth/signup`,
-        {
-          email: inputEmail,
-          password: inputPassword,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      )
-      .then(() => navi("/"));
+    postUser({
+      email: inputEmail,
+      password: inputPassword,
+    }).then(() => navi("/"));
   }
 
   return (

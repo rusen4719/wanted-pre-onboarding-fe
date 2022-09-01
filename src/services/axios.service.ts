@@ -33,6 +33,17 @@ export const getToken = async (loginParams: LoginParams) => {
     return { errorMessage: "cant get token" };
   }
 };
+export const postUser = async (loginParams: LoginParams) => {
+  try {
+    await authAxios.post("/signup", { ...loginParams });
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      const serverError = error as AxiosError<ServerError>;
+      return serverError.message;
+    }
+    return { errorMessage: "cant get token" };
+  }
+};
 
 export const getTodos = async () => {
   try {
